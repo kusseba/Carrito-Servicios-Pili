@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Pili/Carrito</title>
+    <link rel="stylesheet" href="styles(carrito).css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <h1>Carrito de compras</h1>
+    </header>
+    <div id="carrito" class="droppable"> <!-- Es la imagén que les mostre hoy, la cual actúa como carrito. -->
+        <i class="bi bi-cart4"></i>
+        <ul id="lista-carrito">
+            <!--Aqui se mostrarán las comidas solicitas. Todavía no decide como se mostrarán, por lo que denme
+            sugerencias. -->
+        </ul>
+        <p id="total">Total: 0</p>
+    </div>
+
+    <h2>Comidas</h2>
+
+    <div id="productos">
+        <!--Los productos se muestran. Debo armar las imagenes particulares. -->
+        <div class="producto draggable" data-nombre="Asado a la estaca">
+            <img src="Servicios_Pili_Imagenes/asado_estaca.jpg" alt="Asado a la estaca" width="150"> <!-- Aqui se muestra la src de las imagenes de las comidas-->
+            <h3>Asado a la estaca</h3>
+        </div> 
+        <div class="producto draggable" data-nombre="chorizos" alt="Chorizos">
+            <img src="Servicios_Pili_Imagenes/chorizos.jpg" alt="Chorizos" width="200">
+            <h3>Chorizos</h3>
+        </div>
+        <div class="producto draggable" data-nombre="carne guisada con pure">
+            <img src="Servicios_Pili_Imagenes/carneSalsa_conPure.jpg" alt="carne guisada con pure" width="150">
+            <h3>Carne guisada con pure</h3>
+        </div>
+        <div class="producto draggable" data-nombre="Morcillas">
+            <img src="Servicios_Pili_Imagenes/morcillas.jpg" alt="Morcillas" width="150">
+            <h3>Morcillas</h3>
+        </div>
+        <div class="producto draggable" data-nombre="picada">
+            <img src="Servicios_Pili_Imagenes/picadas.jpg" alt="picadas" width="200">
+            <h3>picadas</h3>
+        </div>
+        <div class="producto draggable" data-nombre="sanwiches">
+            <img src="Servicios_Pili_Imagenes/sanwiches.jpg" alt="sanwiches" width="120" height="120">
+            <h3>Sanwiches</h3>
+        </div>
+        <div class="producto draggable" data-nombre="pizzas">
+            <img src="Servicios_Pili_Imagenes/piezasEspeciales.jpg" alt="pizzas" width="200">
+            <h3>Pizzas al gusto</h3>
+        </div>
+        <div class="producto draggable" data-nombre="Ensaladas: lechuga y tomate">
+            <img src="Servicios_Pili_Imagenes/ensaladas.jpg" alt="ensaladas" width="150" height="100">
+            <h3>Ensaladas: lechuga y tomate</h3>
+        </div>
+    </div> <!--Como es una muestra no puse más comidas, pero hacen falta viganme y agregare todas las demás 
+            imagenes.-->
+
+    <div id="servicios"> <!--Está parte la solo por si acaso hacia falta, pero creó el tamaño del personal es algo
+                            que Luciano dijo que se debía discutir con un empleado. Por lo que no lo desarrolle más
+                            -->
+        <div class="servicio draggable">
+            <h3>Cantidad de personal solicitado</h3>
+            <h3></h3>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="carrito(app).js"></script>
+</body>
+</html>
