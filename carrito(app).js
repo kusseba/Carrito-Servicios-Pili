@@ -1,44 +1,43 @@
-$(document).ready(function() {
-    let carrito = [];
-    
-    $('.draggable').draggable({
-      revert: 'invalid',
-      helper: 'clone'
-    });
-    
-    $('.droppable').droppable({
-      accept: '.draggable',
-      drop: function(event, ui) {
-        const producto = ui.helper.clone();
-        const nombre = producto.data('nombre');
-        
-        carrito.push(nombre);
-        actualizarListaCarrito();
-      }
-    });
-    
-    $('#enviar-whatsapp').on('click', function() {
-      const productosTexto = carrito.join(', ');
-      const mensajeWhatsApp = 'Ul cliente solicita los siguientas comidas: ' + productosTexto;
-      const urlWhatsApp = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(mensajeWhatsApp);
-      
-    
-      window.open(urlWhatsApp, '_blank');
-      
-    
-      carrito = [];
-      actualizarListaCarrito();
-    });
-    
-    function actualizarListaCarrito() {
-      const listaCarrito = $('#lista-carrito');
-      listaCarrito.empty();
-      
-      for (let i = 0; i < carrito.length; i++) {
-        const itemCarrito = $('<li></li>');
-        itemCarrito.text(carrito[i]);
-        listaCarrito.append(itemCarrito);
-      }
-    }
-  });
-  
+ const listaCarrito = document.getElementById('lista-carrito');
+ const totalCarrito = document.getElementById('total');
+ const productos = document.querySelectorAll('.producto');
+ const carrito = [];
+
+ 
+ function agregarAlCarrito(nombre) {
+     carrito.push(nombre);
+     actualizarCarrito();
+ }
+
+ 
+ function actualizarCarrito() {
+     listaCarrito.innerHTML = '';
+     let total = 0;
+
+     carrito.forEach(nombre => {
+         const li = document.createElement('li');
+         li.textContent = nombre;
+         listaCarrito.appendChild(li);
+         total += 1; // Aquí puedes agregar la lógica para calcular el total real
+     });
+
+     totalCarrito.textContent = `Total: ${total}`;
+ }
+
+ 
+ productos.forEach(producto => {
+     producto.addEventListener('dragstart', function (event) {
+         event.dataTransfer.setData('text/plain', producto.dataset.nombre);
+     });
+ });
+
+ 
+ carrito.addEventListener('dragover', function (event) {
+     event.preventDefault();
+ });
+
+ carrito.addEventListener('drop', function (event) {
+     event.preventDefault();
+     const nombreProducto = event.dataTransfer.getData('text/plain');
+     agregarAlCarrito(nombreProducto);
+ });
