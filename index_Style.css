@@ -190,7 +190,7 @@ i {
     padding: 10px;
     background-color: #070707;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 .navbar {
@@ -198,10 +198,3 @@ i {
     border: 0;
 }
 
-.collapse {
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    right: 0;
-    font-size: 20px;
-}
